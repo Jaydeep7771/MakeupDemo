@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Belle | Luxury Makeup & Hair Studio</title>
+<meta name="description" content="Luxury bridal, editorial and event makeup & hair services.">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      blush: '#F4DCD6', rose: '#B76E79', roseDark: '#9C5763',
+      champagne: '#F7E7CE', cream: '#FBF7F2', charcoal: '#2B2B2B'
+    },
+    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Montserrat', 'sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .9s ease, transform .9s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .img-ph { background: linear-gradient(135deg,#F4DCD6,#F7E7CE 50%,#E8C3BA); background-size: cover; background-position: center; }
+  .gold-text { background: linear-gradient(90deg,#B76E79,#D4A373,#B76E79); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .masonry { columns: 1; column-gap: 1rem; }
+  @media (min-width: 640px) { .masonry { columns: 2; } }
+  @media (min-width: 1024px) { .masonry { columns: 3; } }
+  .masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+  #nav.scrolled { background: rgba(251,247,242,.95); box-shadow: 0 2px 20px rgba(0,0,0,.06); backdrop-filter: blur(8px); }
+  #nav.scrolled .nav-link, #nav.scrolled .logo { color: #2B2B2B; }
+  .slide { transition: opacity .7s ease; }
+</style>
+</head>
+<body class="font-sans bg-cream text-charcoal antialiased">
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="#home" class="logo font-serif text-2xl text-white tracking-wide">Maison <span class="italic">Belle</span></a>
+    <nav class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase">
+      <a href="#about" class="nav-link text-white hover:text-rose transition">About</a>
+      <a href="#services" class="nav-link text-white hover:text-rose transition">Services</a>
+      <a href="#portfolio" class="nav-link text-white hover:text-rose transition">Portfolio</a>
+      <a href="#reviews" class="nav-link text-white hover:text-rose transition">Reviews</a>
+      <a href="#contact" class="bg-rose hover:bg-roseDark text-white px-5 py-2.5 rounded-full transition shadow-lg">Book Now</a>
+    </nav>
+    <button id="menuBtn" aria-label="Open menu" class="md:hidden nav-link text-white">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-cream border-t border-blush">
+    <div class="flex flex-col px-6 py-6 gap-5 text-sm uppercase tracking-widest">
+      <a href="#about" class="m-link">About</a><a href="#services" class="m-link">Services</a>
+      <a href="#portfolio" class="m-link">Portfolio</a><a href="#reviews" class="m-link">Reviews</a>
+      <a href="#contact" class="m-link bg-rose text-white text-center py-3 rounded-full">Book a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+  <div class="absolute inset-0 img-ph" style="background-image:url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+  <div class="relative z-10 px-6 max-w-3xl fade-up">
+    <p class="uppercase tracking-[0.35em] text-champagne text-xs md:text-sm mb-5">Makeup & Hair Studio</p>
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-white leading-tight mb-6">Flawless Artistry for Your <span class="italic text-blush">Most Memorable</span> Moments.</h1>
+    <p class="text-white/90 text-base md:text-lg font-light mb-10">Luxury bridal, editorial, and event makeup services.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contact" class="bg-rose hover:bg-roseDark text-white px-9 py-4 rounded-full uppercase tracking-widest text-sm font-medium shadow-2xl hover:-translate-y-1 transition">Book a Consultation</a>
+      <a href="#portfolio" class="border border-white/70 text-white hover:bg-white hover:text-charcoal px-9 py-4 rounded-full uppercase tracking-widest text-sm transition">View Portfolio</a>
+    </div>
+  </div>
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 animate-bounce" aria-label="Scroll down">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="relative fade-up">
+      <div class="absolute -top-4 -left-4 w-full h-full border-2 border-rose/40 rounded-2xl"></div>
+      <div class="relative aspect-[4/5] rounded-2xl img-ph shadow-xl" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80')" role="img" aria-label="Makeup artist portrait"></div>
+      <div class="absolute -bottom-6 -right-2 md:-right-6 bg-white rounded-xl shadow-lg px-6 py-4 text-center">
+        <p class="font-serif text-3xl gold-text font-bold">500+</p><p class="text-xs uppercase tracking-widest text-charcoal/60">Happy Brides</p>
+      </div>
+    </div>
+    <div class="fade-up">
+      <p class="uppercase tracking-[0.3em] text-rose text-xs mb-3">Meet the Artist</p>
+      <h2 class="font-serif text-3xl md:text-5xl mb-6 leading-tight">Hello, I'm <span class="italic">Ananya</span> — your beauty storyteller.</h2>
+      <p class="text-charcoal/75 leading-relaxed mb-4">For over 5 years, I've had the privilege of being part of life's most beautiful moments — from intimate engagements to grand destination weddings. My philosophy is simple: makeup should never mask who you are, it should reveal the most radiant version of you.</p>
+      <p class="text-charcoal/75 leading-relaxed mb-8">Every look is tailored to your skin, your features and your story. I work exclusively with premium, skin-loving brands like Charlotte Tilbury, MAC, Huda Beauty and Dior, and follow strict hygiene protocols so you can simply relax and glow.</p>
+      <div class="grid grid-cols-3 gap-4 border-t border-blush pt-6">
+        <div><p class="font-serif text-2xl text-rose">5+</p><p class="text-xs uppercase tracking-wider text-charcoal/60">Years</p></div>
+        <div><p class="font-serif text-2xl text-rose">100%</p><p class="text-xs uppercase tracking-wider text-charcoal/60">Premium Kits</p></div>
+        <div><p class="font-serif text-2xl text-rose">4.9★</p><p class="text-xs uppercase tracking-wider text-charcoal/60">Rating</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 md:py-28 bg-blush/40">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <p class="uppercase tracking-[0.3em] text-rose text-xs mb-3">Services & Pricing</p>
+      <h2 class="font-serif text-3xl md:text-5xl mb-4">Curated Beauty Experiences</h2>
+      <p class="text-charcoal/70">Every package includes a personalised skin prep ritual and long-wear setting for picture-perfect results all day.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- card template -->
+      <div class="fade-up group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col">
+        <div class="h-52 img-ph group-hover:scale-105 transition duration-700" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80')"></div>
+        <div class="p-6 flex flex-col flex-1">
+          <span class="text-[10px] uppercase tracking-widest bg-champagne text-roseDark px-3 py-1 rounded-full self-start mb-3">Most Popular</span>
+          <h3 class="font-serif text-2xl mb-2">Bridal Makeup</h3>
+          <ul class="text-sm text-charcoal/70 space-y-1.5 mb-6 flex-1">
+            <li>✦ Pre-bridal consultation & trial</li><li>✦ HD / Airbrush bridal makeup</li><li>✦ Hair styling & accessories setting</li><li>✦ Saree / dupatta draping</li>
+          </ul>
+          <p class="text-xs text-charcoal/50 uppercase tracking-wider">Starting from</p>
+          <p class="font-serif text-3xl text-rose mb-4">₹25,000</p>
+          <a href="#contact" class="text-center border border-rose text-rose group-hover:bg-rose group-hover:text-white py-3 rounded-full text-sm uppercase tracking-widest transition">Enquire</a>
+        </div>
+      </div>
+      <div class="fade-up group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col">
+        <div class="h-52 img-ph group-hover:scale-105 transition duration-700" style="background-image:url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80')"></div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-serif text-2xl mb-2 mt-8">Party & Event Glam</h3>
+          <ul class="text-sm text-charcoal/70 space-y-1.5 mb-6 flex-1">
+            <li>✦ Choice of HD or Airbrush finish</li><li>✦ Lashes included</li><li>✦ Soft curls, blowout or updo</li><li>✦ Ideal for sangeet, reception & galas</li>
+          </ul>
+          <p class="text-xs text-charcoal/50 uppercase tracking-wider">Starting from</p>
+          <p class="font-serif text-3xl text-rose mb-4">₹8,500</p>
+          <a href="#contact" class="text-center border border-rose text-rose group-hover:bg-rose group-hover:text-white py-3 rounded-full text-sm uppercase tracking-widest transition">Enquire</a>
+        </div>
+      </div>
+      <div class="fade-up group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col">
+        <div class="h-52 img-ph group-hover:scale-105 transition duration-700" style="background-image:url('https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=700&q=80')"></div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-serif text-2xl mb-2 mt-8">Editorial & Fashion</h3>
+          <ul class="text-sm text-charcoal/70 space-y-1.5 mb-6 flex-1">
+            <li>✦ Concept & mood-board styling</li><li>✦ Camera-ready, high-definition looks</li><li>✦ On-set touch-ups</li><li>✦ Half-day & full-day rates</li>
+          </ul>
+          <p class="text-xs text-charcoal/50 uppercase tracking-wider">Starting from</p>
+          <p class="font-serif text-3xl text-rose mb-4">₹15,000</p>
+          <a href="#contact" class="text-center border border-rose text-rose group-hover:bg-rose group-hover:text-white py-3 rounded-full text-sm uppercase tracking-widest transition">Enquire</a>
+        </div>
+      </div>
+      <div class="fade-up group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col">
+        <div class="h-52 img-ph group-hover:scale-105 transition duration-700" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=80')"></div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-serif text-2xl mb-2 mt-8">Hair Styling</h3>
+          <ul class="text-sm text-charcoal/70 space-y-1.5 mb-6 flex-1">
+            <li>✦ Bridal buns & braids</li><li>✦ Glam waves & blowouts</li><li>✦ Extensions & floral styling</li><li>✦ Add-on for any package</li>
+          </ul>
+          <p class="text-xs text-charcoal/50 uppercase tracking-wider">Starting from</p>
+          <p class="font-serif text-3xl text-rose mb-4">₹3,500</p>
+          <a href="#contact" class="text-center border border-rose text-rose group-hover:bg-rose group-hover:text-white py-3 rounded-full text-sm uppercase tracking-widest transition">Enquire</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12 fade-up">
+      <a href="#contact" class="inline-block border-b-2 border-rose text-charcoal hover:text-rose pb-1 uppercase tracking-widest text-sm transition">View Full Price List →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-10 fade-up">
+      <p class="uppercase tracking-[0.3em] text-rose text-xs mb-3">Portfolio</p>
+      <h2 class="font-serif text-3xl md:text-5xl mb-6">The Gallery</h2>
+      <div id="filters" class="flex flex-wrap justify-center gap-2 text-xs uppercase tracking-widest">
+        <button data-f="all" class="filter px-4 py-2 rounded-full bg-rose text-white">All</button>
+        <button data-f="bridal" class="filter px-4 py-2 rounded-full bg-blush/60 hover:bg-blush">Bridal</button>
+        <button data-f="glam" class="filter px-4 py-2 rounded-full bg-blush/60 hover:bg-blush">Glam</button>
+        <button data-f="editorial" class="filter px-4 py-2 rounded-full bg-blush/60 hover:bg-blush">Editorial</button>
+      </div>
+    </div>
+    <div id="gallery" class="masonry"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-[60] hidden items-center justify-center p-4">
+  <button id="lbClose" class="absolute top-5 right-6 text-white text-4xl" aria-label="Close">&times;</button>
+  <figure class="max-w-3xl w-full">
+    <div id="lbImg" class="w-full h-[75vh] img-ph rounded-lg" style="background-size:contain;background-repeat:no-repeat"></div>
+    <figcaption id="lbCap" class="text-center text-white font-serif text-xl mt-4"></figcaption>
+  </figure>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="py-20 md:py-28 bg-charcoal text-white relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose/20 rounded-full blur-3xl"></div>
+  <div class="max-w-4xl mx-auto px-5 text-center relative">
+    <p class="uppercase tracking-[0.3em] text-blush text-xs mb-3 fade-up">Kind Words</p>
+    <h2 class="font-serif text-3xl md:text-5xl mb-12 fade-up">Loved by Our Clients</h2>
+    <div class="relative min-h-[280px] sm:min-h-[220px]" id="slides">
+      <div class="slide absolute inset-0 opacity-100">
+        <p class="text-champagne text-xl mb-4">★★★★★</p>
+        <p class="font-serif italic text-xl md:text-2xl leading-relaxed mb-6">"Ananya arrived 30 minutes early on my wedding morning and kept everyone calm. My makeup stayed flawless through 14 hours, tears and a monsoon shower. I've never felt more beautiful."</p>
+        <p class="uppercase tracking-widest text-sm text-blush">Priya S. — Bride, Udaipur</p>
+      </div>
+      <div class="slide absolute inset-0 opacity-0">
+        <p class="text-champagne text-xl mb-4">★★★★★</p>
+        <p class="font-serif italic text-xl md:text-2xl leading-relaxed mb-6">"What impressed me most was the hygiene — fresh brushes, sanitised kits, disposable applicators. And the final look? Soft, glowing, totally me. Every guest asked who did my makeup."</p>
+        <p class="uppercase tracking-widest text-sm text-blush">Meera K. — Reception Glam</p>
+      </div>
+      <div class="slide absolute inset-0 opacity-0">
+        <p class="text-champagne text-xl mb-4">★★★★★</p>
+        <p class="font-serif italic text-xl md:text-2xl leading-relaxed mb-6">"Booked the studio for a two-day campaign shoot. Punctual, incredibly fast between looks and the skin work was camera-perfect under harsh lighting. Already booked for our next one."</p>
+        <p class="uppercase tracking-widest text-sm text-blush">Rohan D. — Creative Director</p>
+      </div>
+    </div>
+    <div class="flex justify-center gap-3 mt-8" id="dots"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <p class="uppercase tracking-[0.3em] text-rose text-xs mb-3">Book Your Date</p>
+      <h2 class="font-serif text-3xl md:text-5xl mb-4">Let's Create Your Look</h2>
+      <p class="text-charcoal/70">Wedding dates fill up 6–9 months in advance. Reach out early to secure yours.</p>
+    </div>
+    <div class="grid lg:grid-cols-5 gap-10">
+      <form id="bookForm" class="lg:col-span-3 bg-white rounded-2xl shadow-sm p-6 md:p-10 grid sm:grid-cols-2 gap-5 fade-up">
+        <label class="block"><span class="text-xs uppercase tracking-widest text-charcoal/60">Full Name</span>
+          <input required type="text" class="mt-2 w-full border-b border-blush focus:border-rose outline-none py-2 bg-transparent transition" placeholder="Your name"></label>
+        <label class="block"><span class="text-xs uppercase tracking-widest text-charcoal/60">Email</span>
+          <input required type="email" class="mt-2 w-full border-b border-blush focus:border-rose outline-none py-2 bg-transparent transition" placeholder="you@email.com"></label>
+        <label class="block"><span class="text-xs uppercase tracking-widest text-charcoal/60">Event Date</span>
+          <input required type="date" class="mt-2 w-full border-b border-blush focus:border-rose outline-none py-2 bg-transparent transition"></label>
+        <label class="block"><span class="text-xs uppercase tracking-widest text-charcoal/60">Service Required</span>
+          <select required class="mt-2 w-full border-b border-blush focus:border-rose outline-none py-2 bg-transparent transition">
+            <option value="">Select a service</option><option>Bridal Makeup</option><option>Party & Event Glam</option><option>Editorial & Fashion</option><option>Hair Styling</option>
+          </select></label>
+        <label class="block sm:col-span-2"><span class="text-xs uppercase tracking-widest text-charcoal/60">Message</span>
+          <textarea rows="4" class="mt-2 w-full border-b border-blush focus:border-rose outline-none py-2 bg-transparent transition resize-none" placeholder="Tell us about your event, venue and the look you love…"></textarea></label>
+        <button type="submit" class="sm:col-span-2 bg-rose hover:bg-roseDark text-white py-4 rounded-full uppercase tracking-widest text-sm shadow-lg hover:-translate-y-0.5 transition">Send Enquiry</button>
+        <p id="formMsg" class="sm:col-span-2 text-center text-rose hidden">Thank you! We'll be in touch within 24 hours. ✨</p>
+      </form>
+      <div class="lg:col-span-2 space-y-6 fade-up">
+        <div class="bg-blush/40 rounded-2xl p-7 space-y-4 text-sm">
+          <p><span class="block text-xs uppercase tracking-widest text-rose mb-1">Phone</span>+91 98765 43210</p>
+          <p><span class="block text-xs uppercase tracking-widest text-rose mb-1">Email</span>hello@maisonbelle.studio</p>
+          <p><span class="block text-xs uppercase tracking-widest text-rose mb-1">Studio</span>2nd Floor, 14 Rosewood Avenue, Bandra West, Mumbai 400050</p>
+          <div class="flex gap-3 pt-2">
+            <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-rose hover:text-white transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-rose hover:text-white transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+            <a href="https://wa.me/919876543210" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-rose hover:text-white transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+          </div>
+        </div>
+        <div class="border-2 border-dashed border-rose/40 rounded-2xl p-8 text-center bg-white">
+          <svg class="w-10 h-10 mx-auto text-rose mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <p class="font-serif text-xl mb-1">Booking Calendar</p>
+          <p class="text-xs text-charcoal/60">Calendly / booking widget embeds here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-charcoal text-white/70 pt-14 pb-8">
+  <div class="max-w-7xl mx-auto px-5 grid sm:grid-cols-3 gap-10 mb-10">
+    <div>
+      <p class="font-serif text-2xl text-white mb-3">Maison <span class="italic">Belle</span></p>
+      <p class="text-sm">Luxury makeup & hair artistry for brides, events and editorials.</p>
+    </div>
+    <div>
+      <p class="uppercase tracking-widest text-xs text-blush mb-4">Quick Links</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#about" class="hover:text-blush transition">About</a></li><li><a href="#services" class="hover:text-blush transition">Services</a></li>
+        <li><a href="#portfolio" class="hover:text-blush transition">Portfolio</a></li><li><a href="#contact" class="hover:text-blush transition">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="uppercase tracking-widest text-xs text-blush mb-4">Studio Hours</p>
+      <p class="text-sm">Mon – Sat: 9am – 8pm<br>Sunday: By appointment</p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© <span id="yr"></span> Maison Belle Studio. All rights reserved.</p>
+    <div class="flex gap-5"><a href="#" class="hover:text-blush">Privacy Policy</a><a href="#" class="hover:text-blush">Terms</a></div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919876543210" class="fixed bottom-5 right-5 z-40 bg-rose hover:bg-roseDark text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110" aria-label="Chat on WhatsApp">
+  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>
+</a>
+
+<script>
+// Nav background on scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+// Mobile menu
+const menu = document.getElementById('mobileMenu');
+document.getElementById('menuBtn').onclick = () => menu.classList.toggle('hidden');
+document.querySelectorAll('.m-link').forEach(l => l.onclick = () => menu.classList.add('hidden'));
+
+// Gallery data — swap URLs with client photos
+const looks = [
+  ['Classic Bridal','bridal','1519741497674-611481863552','aspect-[3/4]'],
+  ['Dewy Evening Glam','glam','1487412947147-5cebf100ffc2','aspect-square'],
+  ['Editorial Bold Lip','editorial','1503236823255-94609f598e71','aspect-[3/4]'],
+  ['Soft Glam Reception','glam','1512496015851-a90fb38ba796','aspect-[4/5]'],
+  ['Minimal Bride','bridal','1522335789203-aabd1fc54bc9','aspect-square'],
+  ['High-Fashion Shoot','editorial','1526045478516-99145907023c','aspect-[3/4]'],
+  ['Romantic Updo','bridal','1560066984-138dadb4c035','aspect-[4/5]'],
+  ['Golden Hour Glow','glam','1596462502278-27bfdc403348','aspect-square'],
+  ['Runway Ready','editorial','1508214751196-bcfd4ca60f91','aspect-[3/4]']
+];
+const gallery = document.getElementById('gallery');
+gallery.innerHTML = looks.map(([t,c,id,a]) => `
+  <div class="g-item group relative rounded-xl overflow-hidden cursor-pointer" data-c="${c}" data-t="${t}" data-src="https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1200&q=80">
+    <div class="${a} img-ph group-hover:scale-110 transition duration-700" style="background-image:url('https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=75')"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-5">
+      <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+        <p class="text-[10px] uppercase tracking-widest text-blush">${c}</p>
+        <p class="font-serif text-xl text-white">${t}</p>
+      </div>
+    </div>
+  </div>`).join('');
+
+// Filters
+document.querySelectorAll('.filter').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filter').forEach(x => x.className = 'filter px-4 py-2 rounded-full bg-blush/60 hover:bg-blush');
+  b.className = 'filter px-4 py-2 rounded-full bg-rose text-white';
+  document.querySelectorAll('.g-item').forEach(i => i.style.display = (b.dataset.f === 'all' || i.dataset.c === b.dataset.f) ? '' : 'none');
+});
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+gallery.addEventListener('click', e => {
+  const item = e.target.closest('.g-item'); if (!item) return;
+  document.getElementById('lbImg').style.backgroundImage = `url('${item.dataset.src}')`;
+  document.getElementById('lbCap').textContent = item.dataset.t;
+  lb.classList.replace('hidden','flex');
+});
+const closeLb = () => lb.classList.replace('flex','hidden');
+document.getElementById('lbClose').onclick = closeLb;
+lb.onclick = e => { if (e.target === lb) closeLb(); };
+addEventListener('keydown', e => e.key === 'Escape' && closeLb());
+
+// Testimonial carousel
+const slides = document.querySelectorAll('.slide'), dots = document.getElementById('dots');
+let cur = 0;
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'w-2.5 h-2.5 rounded-full transition ' + (i ? 'bg-white/30' : 'bg-blush');
+  d.setAttribute('aria-label', 'Review ' + (i + 1));
+  d.onclick = () => show(i); dots.appendChild(d);
+});
+function show(i) {
+  slides[cur].style.opacity = 0; dots.children[cur].className = 'w-2.5 h-2.5 rounded-full transition bg-white/30';
+  cur = i;
+  slides[cur].style.opacity = 1; dots.children[cur].className = 'w-2.5 h-2.5 rounded-full transition bg-blush';
+}
+setInterval(() => show((cur + 1) % slides.length), 6000);
+
+// Fade-in on scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+// Form (demo)
+document.getElementById('bookForm').onsubmit = e => {
+  e.preventDefault(); document.getElementById('formMsg').classList.remove('hidden'); e.target.reset();
+};
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
